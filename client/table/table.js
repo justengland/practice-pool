@@ -7,7 +7,7 @@ let Transition = React.addons.TransitionGroup
 
 const PoolTable = {
   svgStyle: { width: '850px', height: '430px'},
-  tableOutlineStyle: { width: '800px', height: '400px', fill: 'green'},
+  tableDimensions: { width: 800, height: 400 },
 }
 
 
@@ -46,20 +46,33 @@ export class Table extends Component {
 
     let next = physics.getCoordinates(ball.angle, ball.force, ball.x, ball.y);
 
-    if(next.x > 0) {
+    // Check that dimensions are valid
+    if(next.x > 0 && next.x <= PoolTable.tableDimensions.width)  {
       ball.x = next.x;
-    }
-    else {
+    } 
+    else if (next.x <= 0) {
       ball.x = 0;
       ball.isMoving = false;
-    }
-
-    if(next.y > 0) {
-      ball.y = next.y;
+      ball.angle = 180 - ball.angle;
     }
     else {
+      ball.x = PoolTable.tableDimensions.width;
+      ball.isMoving = false;
+      ball.angle = 180 - ball.angle;
+    }
+
+    if(next.y > 0 && next.y <= PoolTable.tableDimensions.height)  {
+      ball.y = next.y;
+    }
+    else if (next.y <= 0) {
       ball.y = 0;
       ball.isMoving = false;
+      ball.angle = ball.angle * -1
+    }
+    else {
+      ball.y = PoolTable.tableDimensions.height;
+      ball.isMoving = false;
+      ball.angle = ball.angle * -1
     }
 
     Dispatcher.debug({QueBallState: ball });
@@ -92,9 +105,13 @@ export class Table extends Component {
 
   render() {
 
-    let tableOutlineStyle = PoolTable.tableOutlineStyle;
+    let tableOutlineStyle = {
+
+    };
+
     tableOutlineStyle.fill = 'green';
-    tableOutlineStyle.fill = this.props.inMotion ? 'red' : 'green';
+    tableOutlineStyle.width = PoolTable.tableDimensions.width + 'px';
+    tableOutlineStyle.height = PoolTable.tableDimensions.height + 'px';
 
     return (
       <svg style={ PoolTable.svgStyle }>

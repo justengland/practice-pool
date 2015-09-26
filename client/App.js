@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from './table/table';
+import { Table } from './table/Table';
 import { Debugger } from './debugger/Debugger';
 import * as Dispatcher from './dispatcher';
 

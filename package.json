@@ -7,7 +7,8 @@
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "mocha test --compilers js:babel/register"
   },
   "repository": {
     "type": "git",
@@ -46,7 +47,8 @@
     "rimraf": "^2.4.3",
     "webpack": "^1.9.6",
     "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.0.0"
+    "webpack-hot-middleware": "^2.0.0",
+    "mocha": "^2.3.3",
   },
   "dependencies": {
     "react": "^0.13.0",
