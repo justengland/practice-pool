@@ -2,10 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  // devtool: 'eval', // used for hard debugging
+  devtool: 'eval-source-map', // for dev with ES6 maps
+  // prod - devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './src/index'
+    './client/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -17,10 +19,6 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'src')
-    }]
+    loaders: [{ test: /\.js$/, loaders: ['babel'] }]
   }
 };
