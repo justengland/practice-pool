@@ -34,7 +34,7 @@ gulp.task('bundle:dist', (cb) => {
 });
 
 gulp.task('assets', (cb) => {
-  return gulp.src('src/public/**')
+  return gulp.src('client/public/**')
     .pipe(gulp.dest('dist/')).
     pipe($.size({title: 'assets'}));
 });
@@ -51,7 +51,7 @@ gulp.task('build:dist', ['clean'], (cb) => {
 gulp.task('build:watch', ['clean'], (cb) => {
   options.watch = true;
   RunSequnence(['build'], () => {
-    gulp.watch('src/public/**', ['assets']);
+    gulp.watch('client/public/**', ['assets']);
   });
 });
 
@@ -59,7 +59,7 @@ gulp.task('serve', () => {
   const config = require('./webpack.config');
   const bundler = webpack(config);
   let server = new WebpackDevServer(bundler, {
-    contentBase: './src',
+    contentBase: './client',
     publicPath: '/assets/',
     hot: true,
     stats: {

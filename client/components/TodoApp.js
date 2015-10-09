@@ -13,9 +13,11 @@ import * as todosActionCreators from '../actions/TodosAction.js';
     filter: state.filter
   };
 }, todosActionCreators)
+
 export default class TodoApp extends Component {
   render() {
     const { todos, filter, addTodo, deleteTodo, toggleChecked, setFilter, clearTodo } = this.props;
+    console.log('RENDER  todo app', this.props);
     return (
       <section className="todoapp">
         <TodoHeader addTodo={addTodo}/>

@@ -7,6 +7,8 @@ export default class IndexPage extends Component {
       <div>
         <blockquote>Only a todo example here </blockquote>
         <Link to="/todos">GO TO TodoMVC</Link>
+        <br />
+        <Link to="/pool">Play Pool</Link>
       </div>
     );
   }

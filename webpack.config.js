@@ -23,7 +23,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:9999',
     'webpack/hot/only-dev-server',
-    './src/main.js'
+    './client/main.js'
   ],
 
   stats: {
@@ -34,12 +34,12 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'styles': __dirname + '/src/styles',
-      'components': __dirname + '/src/components/',
-      'reducers': __dirname + '/src/reducers/',
-      'actions': __dirname + '/src/actions/',
-      'constants': __dirname + '/src/constants/',
-      'pages': __dirname + '/src/pages/'
+      'styles': __dirname + '/client/styles',
+      'components': __dirname + '/client/components/',
+      'reducers': __dirname + '/client/reducers/',
+      'actions': __dirname + '/client/actions/',
+      'constants': __dirname + '/client/constants/',
+      'pages': __dirname + '/client/containers/'
     }
   },
   module: {
@@ -76,7 +76,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
-      __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
+      __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
     })
   ],
 

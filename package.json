@@ -1,10 +1,12 @@
 {
-  "name": "redux-scafford",
+  "name": "practice-pool",
   "version": "0.1.0",
-  "description": "combination of redux, react-router and ES7+ support ",
+  "description": "",
   "repository": "",
-  "author": "lcj <emlcjnil@gmail.com>",
-  "scripts": {},
+  "author": "Justin England",
+  "scripts": {
+    "start": "gulp serve"
+  },
   "src": "src",
   "test": "test",
   "dist": "dist",
@@ -13,6 +15,7 @@
   "dependencies": {
     "babel": "5.8.23",
     "gulp": "^3.9.0",
+    "history": "^1.12.2",
     "immutable": "^3.7.4",
     "normalize.css": "~3.0.3",
     "radium": "^0.13.7",
@@ -21,7 +24,8 @@
     "react-router": "1.0.0-beta3",
     "redux": "^1.0.1",
     "redux-thunk": "^0.1.0",
-    "todomvc-app-css": "^2.0.1"
+    "todomvc-app-css": "^2.0.1",
+    "webpack-dev-middleware": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -33,8 +37,6 @@
     "del": "^2.0.1",
     "ecstatic": "^1.0.0",
     "eslint": "^1.1.0",
-    "eslint-config-airbnb": "0.0.8",
-    "eslint-config-airplus": "^1.0.4",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.2.3",
     "express": "^4.13.3",
